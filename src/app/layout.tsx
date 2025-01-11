@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import type { Metadata } from "next"
+import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./styles/globals.css";
-import { Geist, Geist_Mono } from "next/font/google";
 
 interface RootLayoutProps {
   children: ReactNode; // Указываем тип для children
@@ -13,9 +13,11 @@ export const metadata: Metadata = {
     "Заказать разработку WEB приложения любой сложности на базе NEXT JS",
 }
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  style:["normal"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
+  variable: "--font-poppins"
 });
 
 const geistMono = Geist_Mono({
@@ -28,7 +30,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="ru">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${poppins.className} antialiased`}
       >
         {children}
       </body>

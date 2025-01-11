@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import React from "react";
-import { Subscribe } from "../components/subscribe";
+import { Subscribe } from "./components/subscribe";
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
           <p className="font-semibold text-primary text-2xl sm:text-3xl md:text-4xl md:leading-tight">
             BarbarisStudio
           </p>
-          <p className="font-secondary text-palette-light text-base md:text-lg lg:text-xl">
+          <p className="text-secondary text-base md:text-lg lg:text-xl">
             Свяжитесь с нами, и давайте вместе создадим что-то удивительное!
           </p>
           <Subscribe />
