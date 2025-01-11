@@ -7,7 +7,7 @@ function Subscribe() {
   const [email, setEmail] = useState("");
   const [clicked, setClicked] = useState(false);
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e:React.FormEvent<HTMLFormElement>) {
     console.log("🚀 ~ handleSubmit ~ e:", e);
   }
 
