@@ -8,7 +8,8 @@ function Subscribe() {
   const [clicked, setClicked] = useState(false);
 
   async function handleSubmit(e:React.FormEvent<HTMLFormElement>) {
-    console.log("🚀 ~ handleSubmit ~ e:", e);
+    e.preventDefault()
+    console.log("🚀 ~ handleSubmit ~ e:", email);
   }
 
   return (
@@ -17,7 +18,7 @@ function Subscribe() {
       onSubmit={handleSubmit}
     >
       <input
-        className="border border-r-0 border-palette-light rounded-l-lg w-2/3
+        className="border border-r-0 border-secondary rounded-l-lg w-2/3
               px-3
               focus:outline-none focus:ring-1 focus:ring-palette-primary"
         type="email"
@@ -26,9 +27,10 @@ function Subscribe() {
         onChange={(e) => setEmail(e.target.value)}
       />
       <button
+        onClick={() => handleSubmit}
         type="submit"
         className="py-3 px-4 bg-primary hover:bg-palette-dark text-white text-sm sm:text-base font-semibold rounded-r-lg border border-transparent 
-          focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-palette-primary"
+          focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-palette-primary hover:bg-primary/75 duration-300"
       >
         Отправить
       </button>

@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import type { Metadata } from "next"
-import { Geist, Geist_Mono, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./styles/globals.css";
 
 interface RootLayoutProps {
@@ -19,12 +19,6 @@ const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins"
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
