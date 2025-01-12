@@ -12,7 +12,7 @@ export default function Home() {
           <h1 className="font-extrabold text-white text-3xl sm:text-4xl md:text-5xl md:leading-tight">
             Разработка WEB приложений
           </h1>
-          <p className="font-semibold text-primary text-2xl sm:text-3xl md:text-4xl md:leading-tight hover:scale-105 duration-700 ">
+          <p className="font-semibold text-primary text-2xl sm:text-3xl md:text-4xl md:leading-tight hover:scale-105 duration-700 [text-shadow:_0_1px_0_rgb(255_255_255_/_30%)]">
             BarbarisStudio
           </p>
           <p className="text-secondary text-base md:text-lg lg:text-xl">
@@ -21,7 +21,7 @@ export default function Home() {
           <Subscribe />
         </div>
       </div>
-      <Video className=" absolute top-0 left-0 w-full h-full object-cover opacity-80"/>
+      <Video className=" absolute top-0 left-0 w-full h-full object-cover opacity-40"/>
     </div>
   );
 }
