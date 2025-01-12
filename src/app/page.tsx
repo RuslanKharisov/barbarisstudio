@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import { Subscribe } from "./components/subscribe";
 import { Video } from "./components/ui/video";
+import { RequestForm } from "./components/request-form";
 
 export default function Home() {
   return (
@@ -18,10 +19,10 @@ export default function Home() {
           <p className="text-secondary text-base md:text-lg lg:text-xl">
             Свяжитесь с нами, и давайте вместе создадим что-то удивительное!
           </p>
-          <Subscribe />
+          <RequestForm/>
         </div>
       </div>
-      <Video className=" absolute top-0 left-0 w-full h-full object-cover opacity-40"/>
+      <Video className=" absolute top-0 left-0 w-full h-full object-cover opacity-30"/>
     </div>
   );
 }

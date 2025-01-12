@@ -8,7 +8,6 @@ export interface resMessageToTg {
 export const sendMessageToTg = async (
   email: string
 ): Promise<resMessageToTg> => {
-  // Замените 'YOUR_TELEGRAM_BOT_TOKEN' и 'YOUR_CHAT_ID' на ваши значения
   const telegramBotToken = "YOUR_TELEGRAM_BOT_TOKEN";
   const chatId = "YOUR_CHAT_ID";
   const message = `Новая подписка: ${email}`;

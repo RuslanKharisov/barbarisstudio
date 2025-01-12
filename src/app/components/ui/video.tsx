@@ -8,7 +8,7 @@ export function Video({ className }: VideoProps) {
   return (
     <video
       className={cn("", className)}
-      src="/video/smoke-background-optimized.mp4"
+      src="/video/smoke-background.mp4"
       autoPlay
       loop
       muted
