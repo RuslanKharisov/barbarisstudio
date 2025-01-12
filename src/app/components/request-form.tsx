@@ -72,7 +72,7 @@ export function RequestForm() {
       className="font-secondary w-full px-14 max-w-lg mx-auto"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="flex flex-col justify-center items-center gap-2 mb-16">
+      <div className="flex flex-col justify-center items-center gap-2 mb-8">
         <input
           className={`w-full rounded-lg px-3 py-3 focus:outline-none focus:ring-1 focus:ring-palette-primary ${
             errors.name
