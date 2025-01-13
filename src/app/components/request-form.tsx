@@ -69,7 +69,7 @@ export function RequestForm() {
 
   return (
     <form
-      className="font-secondary w-full px-14 max-w-lg mx-auto"
+      className="font-secondary w-full md:px-14 max-w-lg mx-auto"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="flex flex-col justify-center items-center gap-2 mb-8">
