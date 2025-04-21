@@ -3,7 +3,14 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import React from "react";
-import { formatToParts, generatePattern, InputMask, unformat, useMask } from "@react-input/mask";
+import {
+  formatToParts,
+  generatePattern,
+  InputMask,
+  unformat,
+  useMask,
+} from "@react-input/mask";
+import { sendMessageToTg } from "../actions/sendMessageToTg";
 
 const phoneValidation = /^(?:\+7|8)?\s?\(?[1-9]\d{2}\)?\s?\d{3}-?\d{2}-?\d{2}$/;
 
@@ -62,9 +69,14 @@ export function RequestForm() {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log("🚀 ~ onSubmit ~ values:", data);
-    reset();
+  const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    const res = await sendMessageToTg(data);
+    if (res.success) {
+      alert("Заявка успешно отправлена!");
+      reset();
+    } else {
+      alert("Ошибка при отправке: " + res.error);
+    }
   };
 
   return (
@@ -99,7 +111,7 @@ export function RequestForm() {
         </div>
 
         <InputMask
-          {...options}          
+          {...options}
           className={`w-full rounded-lg px-3 py-3 focus:outline-none focus:ring-1 focus:ring-palette-primary ${
             errors.phone
               ? "text-destructive/80 placeholder:text-destructive/70 border-destructive placeholder:font-light placeholder:text-xs"
@@ -107,15 +119,14 @@ export function RequestForm() {
           }`}
           placeholder={errors.phone?.message || "987-654-32-10"}
           {...register("phone", {
-            onChange:(e) => {
+            onChange: (e) => {
               const value = e.target.value;
               const input = unformat(value, options);
               const parts = formatToParts(value, options);
               const pattern = generatePattern("full-inexact", options);
               const isValid = RegExp(pattern).test(value);
-  
-            }}
-          )}
+            },
+          })}
         />
       </div>
 
