@@ -4,7 +4,7 @@ import { Montserrat, Roboto_Mono } from "next/font/google";
 import "./styles/globals.css";
 
 interface RootLayoutProps {
-  children: ReactNode; // Указываем тип для children
+  children: ReactNode;
 }
 
 export const metadata: Metadata = {
@@ -20,7 +20,8 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-export const roboto_mono = Roboto_Mono({
+// ✅ Remove the `export` keyword here
+const roboto_mono = Roboto_Mono({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-roboto-mono",
@@ -30,7 +31,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="ru">
       <body
-        className={`${montserrat.variable} ${roboto_mono.variable} antialiased font-sans`}
+        className={`${montserrat.className} ${roboto_mono.className} antialiased font-sans`}
       >
         {children}
       </body>
