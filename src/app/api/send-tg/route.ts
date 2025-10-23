@@ -9,8 +9,8 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: "Некорректные данные формы" }, { status: 400 });
     }
 
-    const token = process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN;
-    const chatId = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID;
+    const token = process.env.TELEGRAM_BOT_TOKEN;
+    const chatId = process.env.TELEGRAM_CHAT_ID;
 
     if (!token || !chatId) {
         return NextResponse.json({ error: "Не настроены переменные окружения" }, { status: 500 });
