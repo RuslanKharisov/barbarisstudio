@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
-import type { Metadata } from "next"
-import { Poppins } from "next/font/google";
+import React, { ReactNode } from "react";
+import type { Metadata } from "next";
+import { Montserrat, Roboto_Mono } from "next/font/google";
 import "./styles/globals.css";
 
 interface RootLayoutProps {
@@ -11,20 +11,26 @@ export const metadata: Metadata = {
   title: "Разработка WEB приложений",
   description:
     "Заказать разработку WEB приложения любой сложности на базе NEXT JS",
-}
+};
 
-const poppins = Poppins({
-  style:["normal"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+const montserrat = Montserrat({
+  style: ["normal"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
-  variable: "--font-poppins"
+  variable: "--font-montserrat",
+});
+
+export const roboto_mono = Roboto_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto-mono",
 });
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="ru">
       <body
-        className={`${poppins.className} antialiased`}
+        className={`${montserrat.variable} ${roboto_mono.variable} antialiased font-sans`}
       >
         {children}
       </body>

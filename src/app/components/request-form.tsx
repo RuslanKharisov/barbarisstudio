@@ -11,6 +11,7 @@ import {
   useMask,
 } from "@react-input/mask";
 import { sendMessageToTg } from "../actions/sendMessageToTg";
+import { Textarea } from "@/components/ui/textarea";
 
 const phoneValidation = /^(?:\+7|8)?\s?\(?[1-9]\d{2}\)?\s?\d{3}-?\d{2}-?\d{2}$/;
 
@@ -27,6 +28,7 @@ const formSchema = z
       .regex(phoneValidation, { message: "Введите корректный номер телефона" })
       .optional()
       .or(z.literal("")),
+    messageText: z.string().max(300, { message: "Не более 300 знаков" }),
   })
   .refine((data) => data.email || data.phone, {
     message: "Одно из полей [email, phone] обязательно",
@@ -66,6 +68,7 @@ export function RequestForm() {
       name: "",
       email: "",
       phone: "",
+      messageText: "",
     },
   });
 
@@ -81,7 +84,7 @@ export function RequestForm() {
 
   return (
     <form
-      className="font-secondary w-full md:px-14 max-w-lg mx-auto"
+      className="font-primary w-full md:px-14 max-w-lg mx-auto"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="flex flex-col justify-center items-center gap-2 mb-8">
@@ -107,7 +110,7 @@ export function RequestForm() {
         />
 
         <div className="w-full rounded-lg px-3 py-1">
-          <span className="">или</span>
+          <span className="text-secondary">или</span>
         </div>
 
         <InputMask
@@ -128,6 +131,19 @@ export function RequestForm() {
             },
           })}
         />
+        <Textarea
+          {...register("messageText", {
+            maxLength: 300,
+            validate: (value) =>
+              value.split(/[.!?]/).filter((s) => s.trim() !== "").length <= 2 ||
+              "Не более 2 предложений",
+          })}
+          placeholder="Напишите короткое сообщение ( до 2 предложений )"
+          className="w-full rounded-lg px-3 py-3 focus:outline-none focus:ring-1 focus:ring-palette-primary placeholder:font-light "
+        />
+        {errors.messageText && (
+          <p className="text-secondary">{errors.messageText.message}</p>
+        )}
       </div>
 
       <input
