@@ -15,7 +15,7 @@ export default function Home() {
             BarbarisStudio
           </p>
           <p className="text-secondary text-base md:text-lg lg:text-xl">
-            Свяжитесь с нами, и давайте вместе создадим что-то удивительное!
+            Свяжитесь с нами, и давайте обсудим вашу задачу!
           </p>
           <RequestForm />
         </div>
