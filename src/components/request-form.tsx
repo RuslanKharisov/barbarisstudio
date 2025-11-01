@@ -76,11 +76,8 @@ export function RequestForm() {
       messageText: "",
     },
   });
-  console.log("errors ==> ", errors);
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    console.log("onSubmit ==> ", data);
-
     if (!executeRecaptcha) {
       toast.error("Не удалось инициализировать капчу");
       return;
