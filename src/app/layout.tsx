@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Montserrat, Roboto_Mono } from "next/font/google";
 import "./styles/globals.css";
+import { Providers } from "../shared/providers/providers";
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -20,7 +21,6 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-// ✅ Remove the `export` keyword here
 const roboto_mono = Roboto_Mono({
   subsets: ["latin"],
   display: "swap",
@@ -33,7 +33,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body
         className={`${montserrat.className} ${roboto_mono.className} antialiased font-sans`}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
