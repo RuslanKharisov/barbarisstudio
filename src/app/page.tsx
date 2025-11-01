@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import { Video } from "../components/ui/video";
 import { RequestForm } from "../components/request-form";
